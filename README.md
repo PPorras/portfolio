@@ -9,11 +9,11 @@ ephemerides_project/
 │── src/
 │   │── __init__.py  # Defines src as a Python package
 │   │── fetch_data.py  # Fetches data from the JPL Horizons API
-│   │── database.py  # Manages the SQLite database (upcoming)
+│   │── database.py  # Manages the SQLite database (creates tables, inserts data)
 │   │── queries.py  # SQL queries for data analysis (upcoming)
 │   │── visualization.py  # Generates plots from the data (upcoming)
 │── data/
-│   │── ephemerides.db  # SQLite database
+│   │── ephemerides.db  # SQLite database (automatically created)
 │── notebooks/
 │   │── exploratory_analysis.ipynb  # Data analysis (upcoming)
 │── main.py  # Main script to execute the full workflow
@@ -40,7 +40,14 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Run the Main Script
+### 4️⃣ Ensure the `data/` Folder Exists
+If the folder does not exist, create it manually:
+```bash
+mkdir -p data
+```
+This ensures SQLite can create the database file.
+
+### 5️⃣ Run the Main Script
 ```bash
 python main.py
 ```
@@ -50,23 +57,22 @@ python main.py -n 5  # Displays 5 lines
 ```
 
 ## 🛠 Technologies Used
-- **Python** (requests, sqlite3, argparse)
+- **Python** (requests, sqlite3, argparse, os)
 - **SQLite** for data storage
 - **JPL Horizons API** for ephemeris acquisition
 
 ## 📌 Next Steps
 ✅ Fetch ephemerides data from the API ✔️
+✅ Store data in SQLite with automatic folder creation ✔️
 ✅ Display data in the terminal with CLI arguments ✔️
-🔲 Store data in SQLite
 🔲 Advanced SQL queries
 🔲 Data visualization with plots
 
 ---
 
 ## 📜 License
-This project is open-source under the MIT license.
+This project is open-source.
 
 ## 📬 Contact
-For questions or suggestions, contact me at [your email or GitHub].
-
+For questions or suggestions, contact me at PPorras.
 
